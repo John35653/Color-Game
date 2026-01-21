@@ -1,18 +1,28 @@
 import tkinter as tk
-from backend import color_chooser, answer_checker
-from backend import cName, cValue, ru_name, labelOne_translation, labelTwo_translation, game_title_translation
+import random
 from googletrans import Translator
 import backend   
 
+
+colors = ["orange","black","white","blue","red","green", "yellow", "purple", "pink"]
+
+def colorChooser():
+    color = random.choice(colors)
+    root.config(bg=color)
+    instruction_label1.configure(text = f"This color in russian is called {root.cget('bg')}", font =("Times New Roman", 12))
+    return color
+
+
+
 #frontend logic:
 root = tk.Tk()    #use game_title_translation 
-root.title("color game")
+root.title("Color Game")
 root.geometry("1000x500")
 
-color_chooser()
-root.configure(bg = cValue)
+#experiment = colorChooser()
+root.configure(bg = "white")
                                                 #use label one translation    use ru_name
-instruction_label1 = tk.Label(root, text = f"This color in russian is called {cName}", font =("Times New Roman", 12))
+instruction_label1 = tk.Label(root, text = f"This color in russian is called {root.cget('bg')}", font =("Times New Roman", 12))
 instruction_label1.pack(pady = 20)
 instruction_label1.place(x = 20, y = 40)
 
@@ -30,7 +40,7 @@ submit_button.place(x= 150, y=100, width=50, height=20)
 
 user_answer = entry.get()
 
-next_page = tk.Button(root, text = "Next")
+next_page = tk.Button(root, text = "Next", command=colorChooser)
 next_page.pack(pady = 20)
 next_page.place(x = 950, y = 450)
 
