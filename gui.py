@@ -10,7 +10,7 @@ def colorChooser():
     color = random.choice(colors)
     root.config(bg=color)
     instruction_label1.configure(text = f"This color in russian is called {root.cget('bg')}", font =("Times New Roman", 12))
-    return color
+    
 
 
 
