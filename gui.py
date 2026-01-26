@@ -9,7 +9,7 @@ def colorChooser():
     color = random.choice(colors)
     root.config(bg=color)
     instruction_label1.configure(text = translator.translate(f"This color in russian is called {root.cget('bg')}\n What color is this in English?", dest='ru').text,\
-    font =("Times New Roman", 20))
+    font =("Open Sans", 20))
 
 
     
@@ -23,11 +23,16 @@ root.geometry("1050x500")
 
 #experiment = colorChooser()
 root.configure(bg = "white")
-                                                #use label one translation    use ru_name
+                                                
 instruction_label1 = tk.Label(root, text = translator.translate(f"This color in russian is called {root.cget('bg')}\n What color is this in English?",dest='ru').text,\
-    font =("Times New Roman", 20))
+    font =("Open Sans", 20))
 instruction_label1.pack(pady = 20)
 instruction_label1.place(x = 20, y = 40)
+
+instruction_label2 = tk.Label(root, text = translator.translate("If you click next and the color does not change,\n just click the next button again", dest='ru').text,\
+    font=("Open Sans", 14))
+instruction_label2.pack(pady = 60)
+instruction_label2.place(x = 20, y = 280)
 
 #   entry = tk.Entry(root)
 #   entry.pack(pady = 20)
